@@ -1,5 +1,7 @@
 * GN proxy & access control
 
+* INSTALL
+
 ** Dependencies and starting the proxy
 
 The only dependencies are "redis-rkt" and "threading", and they
@@ -11,12 +13,20 @@ cd gn-proxy
 raco pkg install
 #+end_src
 
-The REST server can then be started by running server/rest.rkt, while
+* RUN
+
+See also [[.guix-deploy]] for Guix deployment.
+
+The REST server starts by running =racket server/rest.rkt=, while
 providing the SQL username and password as environment variables:
 
 #+begin_src bash
 env SQL_USER=username SQL_PASSWORD=password racket server/rest.rkt
 #+end_src
+
+And visit
+
+: curl localhost:8080/version
 
 By default it listens on port 8080 and listens on 127.0.0.1, however
 the port can be changed with the PORT environment variable.
@@ -129,6 +139,7 @@ user (e.g. in the request to the REST endpoint).
 It's probably best to just look at how one of the existing resource
 types are defined, and ~dataset-geno~ is one of the simplest, while
 still querying the SQL database.
+
 
 ** License
 

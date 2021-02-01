@@ -1,0 +1,8 @@
+# Invoke a GNU Guix container to run the website with something like
+#
+# alias guix=~/opt/guix/bin/guix
+# . .guix-deploy
+echo *** run:
+echo raco pkg install
+echo env TMPDIR=/home/gn3/tmp SQL_USER=username SQL_PASSWORD=password racket -L info server/rest.rkt
+guix environment -C guix --ad-hoc racket openssl nss-certs --network --share=/home/gn3/tmp

@@ -1,0 +1,15 @@
+# systemd definition for running the proxy
+
+[Unit]
+Description=Run GN3 PROXY
+
+[Service]
+ExecStart=/home/gn3/opt/racket-proxy/bin/racket server/rest.rkt
+Environment="SQL_USER=*"
+Environment="SQL_PASSWORD=*"
+User=gn3
+WorkingDirectory=/home/gn3/production/gn-proxy
+
+[Install]
+WantedBy=multi-user.target
+
