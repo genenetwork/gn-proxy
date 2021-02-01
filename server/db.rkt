@@ -22,7 +22,7 @@
 (define (connect-sql)
   (mysql-connect #:user sql-user
                  #:password sql-pass
-                 #:database "db_webqtl_s"))
+                 #:database "db_webqtl"))
 
 (define mysql-conn
   (make-parameter
