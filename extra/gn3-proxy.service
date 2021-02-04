@@ -2,8 +2,12 @@
 
 [Unit]
 Description=Run GN3 PROXY
+Requires=redis.service
+After=redis.service
 
 [Service]
+Restart=always
+RestartSec=60s
 ExecStart=/home/gn3/opt/racket-proxy/bin/racket server/rest.rkt
 Environment="SQL_USER=*"
 Environment="SQL_PASSWORD=*"
@@ -12,4 +16,5 @@ WorkingDirectory=/home/gn3/production/gn-proxy
 
 [Install]
 WantedBy=multi-user.target
+
 
